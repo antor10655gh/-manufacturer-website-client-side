@@ -6,7 +6,7 @@ import { VscFeedback } from "react-icons/vsc";
 
 const BusinessSummery = () => {
   return (
-    <div className="lg:py-12">
+    <div className="lg:py-12 pt-20">
       <div className="stats stats-vertical lg:stats-horizontal shadow w-full">
         <div className="stat place-items-center">
           <div className="mb-5">
