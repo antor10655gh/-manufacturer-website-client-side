@@ -1,5 +1,6 @@
 import React from "react";
 import BusinessSummery from "../BusinessSummary/BusinessSummary";
+import Footer from "../Shared/Footer";
 import Banner from "./Banner";
 import Brand from "./Brand";
 import CountDown from "./CountDown";
@@ -19,6 +20,7 @@ const Home = () => {
       <Brand></Brand>
       <HomeContact></HomeContact>
       <BusinessSummery></BusinessSummery>
+      <Footer></Footer>
     </div>
   );
 };
