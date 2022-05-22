@@ -6,6 +6,7 @@ import {
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
+import Loading from "../Shared/Loading";
 
 const Login = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
@@ -22,6 +23,10 @@ const Login = () => {
 
   if (googleUser) {
     console.log(googleUser);
+  }
+
+  if (loading || googleLoading) {
+    return <Loading></Loading>;
   }
 
   if (error || googleError) {
