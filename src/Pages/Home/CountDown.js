@@ -89,7 +89,7 @@ const CountDown = () => {
               </span>
               DAYS
             </div>
-            <div className="flex items-start">
+            <div className="py-2">
               <span className="text-white text-5xl">:</span>
             </div>
             <div className="flex flex-col p-2 text-neutral-content">
@@ -98,7 +98,7 @@ const CountDown = () => {
               </span>
               HOURS
             </div>
-            <div className="flex items-start">
+            <div className="py-2">
               <span className="text-white text-5xl">:</span>
             </div>
             <div className="flex flex-col p-2 text-neutral-content">
@@ -107,7 +107,7 @@ const CountDown = () => {
               </span>
               MINS
             </div>
-            <div className="flex items-start">
+            <div className="py-2">
               <span className="text-white text-5xl">:</span>
             </div>
             <div className="flex flex-col p-2 text-neutral-content">

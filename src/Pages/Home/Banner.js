@@ -3,12 +3,12 @@ import bannerImg from "../../images/banner.jpg";
 
 const Banner = () => {
   return (
-    <div class="hero lg:min-h-screen">
+    <div class="hero lg:min-h-screen pt-20">
       <div class="hero-content flex-col lg:flex-row-reverse">
         <img
           style={{ width: "800px" }}
           src={bannerImg}
-          class="lg:min-h-screen rounded-lg banner"
+          className="lg:min-h-screen rounded-lg banner"
         />
         <div className="lg:w-2/6">
           <h1 class="text-2xl lg:text-5xl font-bold">

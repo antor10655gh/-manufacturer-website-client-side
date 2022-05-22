@@ -4,7 +4,7 @@ import logo from "../../../src/images/logo.png";
 
 const Navbar = () => {
   return (
-    <div class="navbar bg-base-100">
+    <div class="navbar bg-base-100 fixed z-50">
       <div class="navbar-start">
         <div class="dropdown">
           <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -42,6 +42,12 @@ const Navbar = () => {
             <li>
               <Link to="/businessSummary">Business Summary</Link>
             </li>
+            <li>
+              <Link to="/login">
+                <span className="text-primary">Login</span>
+                <i class="fa-solid fa-right-to-bracket px-1 text-primary"></i>
+              </Link>
+            </li>
           </ul>
         </div>
         <Link to="/home">
@@ -65,13 +71,13 @@ const Navbar = () => {
           <li>
             <Link to="/businessSummary">Business Summary</Link>
           </li>
+          <li>
+            <Link to="/login">
+              <span className="text-primary">Login</span>
+              <i class="fa-solid fa-right-to-bracket px-1 text-primary"></i>
+            </Link>
+          </li>
         </ul>
-      </div>
-      <div class="navbar-end">
-        <Link to="/login">
-          <span className="text-primary">Login</span>
-          <i class="fa-solid fa-right-to-bracket px-1 text-primary"></i>
-        </Link>
       </div>
     </div>
   );
