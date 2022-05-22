@@ -21,7 +21,7 @@ const Banner = () => {
             more complex items. Manufacturers typically stick to one type of
             product.
           </p>
-          <button class="btn btn-primary bg-gradient-to-r from-primary to-orange-600 text-white">
+          <button class="btn btn-primary bg-gradient-to-r from-primary to-secondary text-white">
             <span>Get Started</span>
             <i class="fa-solid fa-angles-right px-1"></i>
           </button>

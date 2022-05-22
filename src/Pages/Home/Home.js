@@ -3,8 +3,10 @@ import BusinessSummery from "../BusinessSummary/BusinessSummary";
 import Banner from "./Banner";
 import Brand from "./Brand";
 import CountDown from "./CountDown";
+import HomeContact from "./HomeContact";
 import HomeTools from "./HomeTools";
 import Services from "./Services";
+import Subscribe from "./Subscribe";
 
 const Home = () => {
   return (
@@ -13,8 +15,10 @@ const Home = () => {
       <Services></Services>
       <HomeTools></HomeTools>
       <CountDown></CountDown>
-      <BusinessSummery></BusinessSummery>
+      <Subscribe></Subscribe>
       <Brand></Brand>
+      <HomeContact></HomeContact>
+      <BusinessSummery></BusinessSummery>
     </div>
   );
 };

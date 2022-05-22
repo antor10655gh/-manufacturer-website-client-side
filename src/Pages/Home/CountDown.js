@@ -7,6 +7,7 @@ const CountDown = () => {
   const [timerHours, setTimerHours] = useState("00");
   const [timerMinutes, setTimerMinutes] = useState("00");
   const [timerSeconds, setTimerSeconds] = useState("00");
+
   let interval = useRef();
 
   const startTimer = (countdownDate) => {
@@ -14,9 +15,9 @@ const CountDown = () => {
 
     const distance = countdownDate - now;
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24)) + 15;
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24)) + 20;
     const hours = Math.floor(
-      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60) + 10
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60) + 15
     );
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
