@@ -1,0 +1,8 @@
+.brand img {
+  filter: grayscale(100%);
+}
+
+.brand .brand-logo:hover img {
+  filter: grayscale(0);
+  cursor: pointer;
+}

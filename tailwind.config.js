@@ -8,7 +8,7 @@ module.exports = {
       {
         tooltrextheme: {
           primary: "#FFAE22",
-          secondary: "#EBECF0",
+          secondary: "#F7D716",
           accent: "#EBECF0",
           neutral: "#3d4451",
           "base-100": "#ffffff",
