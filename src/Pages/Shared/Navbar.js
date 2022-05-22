@@ -1,8 +1,16 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import logo from "../../../src/images/logo.png";
+import auth from "../../firebase.init";
 
 const Navbar = () => {
+  const [user] = useAuthState(auth);
+
+  const handleSignOut = () => {
+    signOut(auth);
+  };
   return (
     <div class="navbar bg-base-100 fixed z-50">
       <div class="navbar-start">
@@ -43,10 +51,14 @@ const Navbar = () => {
               <Link to="/businessSummary">Business Summary</Link>
             </li>
             <li>
-              <Link to="/login">
-                <span className="text-primary">Login</span>
-                <i class="fa-solid fa-right-to-bracket px-1 text-primary"></i>
-              </Link>
+              {user ? (
+                <button onClick={handleSignOut}>SignOut</button>
+              ) : (
+                <Link to="/login">
+                  <span className="text-primary">Login</span>
+                  <i class="fa-solid fa-right-to-bracket px-1 text-primary"></i>
+                </Link>
+              )}
             </li>
           </ul>
         </div>
@@ -72,10 +84,17 @@ const Navbar = () => {
             <Link to="/businessSummary">Business Summary</Link>
           </li>
           <li>
-            <Link to="/login">
-              <span className="text-primary">Login</span>
-              <i class="fa-solid fa-right-to-bracket px-1 text-primary"></i>
-            </Link>
+            {user ? (
+              <button onClick={handleSignOut}>
+                SignOut
+                <i class="fa-solid fa-right-from-bracket"></i>
+              </button>
+            ) : (
+              <Link to="/login">
+                <span className="text-primary">Login</span>
+                <i class="fa-solid fa-right-to-bracket px-1 text-primary"></i>
+              </Link>
+            )}
           </li>
         </ul>
       </div>

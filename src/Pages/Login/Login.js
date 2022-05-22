@@ -52,7 +52,7 @@ const Login = () => {
           class="form-control w-full max-w-md p-8"
         >
           <header className="mb-2">
-            <h1 className="text-xl lg:text-3xl font-bold">Please Login</h1>
+            <h1 className="text-xl lg:text-3xl font-bold">Please Sign</h1>
           </header>
 
           <form onSubmit={handleSubmit(onSubmit)}>
