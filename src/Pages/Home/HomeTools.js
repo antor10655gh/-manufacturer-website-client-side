@@ -6,13 +6,13 @@ const HomeTools = () => {
     <div>
       <header className="text-center pt-3 lg:pt-3 lg:pb-5 pb-3">
         <h2>
-          <span id="span">I</span>
-          <span id="span">N</span>
-          <span id="span">V</span>
           <span id="span">O</span>
-          <span id="span">I</span>
-          <span id="span">C</span>
-          <span id="span">E</span>
+          <span id="span">U</span>
+          <span id="span">R</span>
+          <span id="span">T</span>
+          <span id="span">O</span>
+          <span id="span">O</span>
+          <span id="span">L</span>
           <span id="span">S</span>
         </h2>
         <div

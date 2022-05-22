@@ -8,8 +8,8 @@ import "../Home/Brand.css";
 
 const Brand = () => {
   return (
-    <div className="lg:py-12">
-      <div class="grid grid-cols-5 gap-4 brand">
+    <div className="py-5 lg:py-12">
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 brand">
         <div className="flex items-center justify-center brand-logo">
           <img src={brand1} alt="brand1" />
         </div>

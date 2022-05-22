@@ -4,15 +4,17 @@ import Banner from "./Banner";
 import Brand from "./Brand";
 import CountDown from "./CountDown";
 import HomeTools from "./HomeTools";
+import Services from "./Services";
 
 const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <Brand></Brand>
+      <Services></Services>
       <HomeTools></HomeTools>
       <CountDown></CountDown>
       <BusinessSummery></BusinessSummery>
+      <Brand></Brand>
     </div>
   );
 };
