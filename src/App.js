@@ -4,6 +4,7 @@ import Blog from "./Pages/Blog/Blog";
 import BusinessSummary from "./Pages/BusinessSummary/BusinessSummary";
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
+import RequireAuth from "./Pages/Login/RequireAuth";
 import Reviews from "./Pages/Reviews/Reviews";
 import Navbar from "./Pages/Shared/Navbar";
 import SignUp from "./Pages/SignUp/SignUp";
@@ -16,7 +17,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
-        <Route path="/tools" element={<Tools></Tools>}></Route>
+        <Route
+          path="/tools"
+          element={
+            <RequireAuth>
+              <Tools></Tools>
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="/reviews" element={<Reviews></Reviews>}></Route>
         <Route path="/blog" element={<Blog></Blog>}></Route>
         <Route
