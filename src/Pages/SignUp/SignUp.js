@@ -28,8 +28,8 @@ const SignUp = () => {
 
   const navigate = useNavigate();
 
-  if (user || googleUser) {
-    console.log(googleUser);
+  if (token) {
+    navigate("/home");
   }
 
   if (loading || googleLoading || updateLoading) {
@@ -49,8 +49,6 @@ const SignUp = () => {
   const onSubmit = async (data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
-    console.log("update done");
-    navigate("/home");
   };
 
   return (
