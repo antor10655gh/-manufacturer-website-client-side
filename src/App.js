@@ -12,6 +12,7 @@ import Tools from "./Pages/Tools/Tools";
 import ToolsOrder from "./Pages/Tools/ToolsOrder";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Dashboard from "./Pages/Dashboard/Dashboard";
 
 function App() {
   return (
@@ -25,6 +26,14 @@ function App() {
           element={
             <RequireAuth>
               <Tools></Tools>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/dashboard"
+          element={
+            <RequireAuth>
+              <Dashboard></Dashboard>
             </RequireAuth>
           }
         ></Route>
