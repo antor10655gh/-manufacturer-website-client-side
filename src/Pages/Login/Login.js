@@ -52,20 +52,20 @@ const Login = () => {
           style={{
             boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
           }}
-          class="form-control w-full max-w-md p-8"
+          className="form-control w-full max-w-md p-8"
         >
           <header className="mb-2">
             <h1 className="text-xl lg:text-3xl font-bold">Please Sign</h1>
           </header>
 
           <form onSubmit={handleSubmit(onSubmit)}>
-            <label class="label">
-              <span class="label-text text-lg">Email</span>
+            <label className="label">
+              <span className="label-text text-lg">Email</span>
             </label>
             <input
               type="text"
               placeholder="Enter email"
-              class="input input-bordered w-full max-w-md"
+              className="input input-bordered w-full max-w-md"
               {...register("email", {
                 required: {
                   value: true,
@@ -91,13 +91,13 @@ const Login = () => {
                 </span>
               )}
             </label>
-            <label class="label">
-              <span class="label-text text-lg">Password</span>
+            <label className="label">
+              <span className="label-text text-lg">Password</span>
             </label>
             <input
               type="password"
               placeholder="Enter password"
-              class="input input-bordered w-full max-w-md"
+              className="input input-bordered w-full max-w-md"
               {...register("password", {
                 required: {
                   value: true,
@@ -122,14 +122,14 @@ const Login = () => {
                 </span>
               )}
             </label>
-            <label class="label mb-3">
+            <label className="label mb-3">
               <button className="text-secondary text-sm">
                 Forgot Password ?
               </button>
             </label>
             {signInError}
             <input
-              class="btn btn-wide w-full mb-2"
+              className="btn btn-wide w-full mb-2"
               type="submit"
               value="Login"
             />
@@ -141,12 +141,12 @@ const Login = () => {
               </Link>
             </span>
           </form>
-          <div class="flex flex-col w-full border-opacity-50">
-            <div class="divider">OR</div>
+          <div className="flex flex-col w-full border-opacity-50">
+            <div className="divider">OR</div>
           </div>
           <button
             onClick={() => signInWithGoogle()}
-            class="btn btn-outline btn-wide w-full"
+            className="btn btn-outline btn-wide w-full"
           >
             Continue With Google
           </button>

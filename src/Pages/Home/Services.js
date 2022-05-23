@@ -26,7 +26,7 @@ const Services = () => {
       <div className="grid lg:grid-cols-4 gap-10 lg:gap-4 pt-5 lg:pt-0">
         <div className="flex flex-col items-center lg:flex-row justify-center gap-4 hover:shadow-lg lg:py-12">
           <span className="text-primary text-5xl">
-            <i class="fa-solid fa-truck"></i>
+            <i className="fa-solid fa-truck"></i>
           </span>
           <div>
             <h4 className="text-xl text-center lg:text-left font-bold">
@@ -37,7 +37,7 @@ const Services = () => {
         </div>
         <div className="flex flex-col items-center lg:flex-row justify-center gap-4 hover:shadow-lg lg:py-12">
           <span className="text-primary text-5xl">
-            <i class="fa-solid fa-arrow-rotate-left"></i>
+            <i className="fa-solid fa-arrow-rotate-left"></i>
           </span>
           <div>
             <h4 className="text-xl text-center lg:text-left font-bold">
@@ -48,7 +48,7 @@ const Services = () => {
         </div>
         <div className="flex flex-col items-center lg:flex-row justify-center gap-4 hover:shadow-lg lg:py-12">
           <span className="text-primary text-5xl">
-            <i class="fa-solid fa-credit-card"></i>
+            <i className="fa-solid fa-credit-card"></i>
           </span>
           <div>
             <h4 className="text-xl text-center lg:text-left font-bold">
@@ -59,7 +59,7 @@ const Services = () => {
         </div>
         <div className="flex flex-col items-center lg:flex-row justify-center gap-4 hover:shadow-lg lg:py-12">
           <span className="text-primary text-5xl">
-            <i class="fa-solid fa-gift"></i>
+            <i className="fa-solid fa-gift"></i>
           </span>
           <div>
             <h4 className="text-xl text-center lg:text-left font-bold">

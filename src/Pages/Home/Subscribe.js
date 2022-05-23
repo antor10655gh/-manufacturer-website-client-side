@@ -13,12 +13,12 @@ const Subscribe = () => {
           </p>
         </div>
         <div>
-          <div class="form-control">
-            <label class="input-group">
+          <div className="form-control">
+            <label className="input-group">
               <input
                 type="text"
                 placeholder="Enter your email"
-                class="input input-bordered w-full"
+                className="input input-bordered w-full"
               />
               <button className="btn btn-primary px-8 bg-gradient-to-r from-primary to-secondary text-white">
                 Subscribe Now
