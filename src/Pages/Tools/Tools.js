@@ -5,7 +5,7 @@ import HomeTool from "../Home/HomeTool";
 const Tools = () => {
   const [products, setProducts] = useProduct();
   return (
-    <div className="pt-28 pb-12 px-2 lg:px-0">
+    <div className="pt-12 pb-12 px-2 lg:px-0">
       <header className="text-center pb-5 lg:pb-20 ">
         <h2>
           <span id="span">O</span>
