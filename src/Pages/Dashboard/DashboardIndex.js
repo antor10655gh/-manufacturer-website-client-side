@@ -3,7 +3,7 @@ import React from "react";
 const DashboardIndex = () => {
   return (
     <div>
-      <div className="lg:px-12 pt-5 lg:pt-12 flex justify-between gap-5">
+      <div className="lg:px-12 pt-5 lg:pt-12 grid lg:grid-cols-3 place-items-center gap-5">
         <div>
           <div class="p-3 flex justify-between items-center w-72 bg-info text-white shadow-xl">
             <div>
@@ -39,7 +39,7 @@ const DashboardIndex = () => {
         </div>
       </div>
       {/* ---------------------------------- */}
-      <div className="lg:px-12 pt-5 lg:pt-20 flex justify-between gap-5">
+      <div className="lg:px-12 pt-5 lg:pt-24 grid lg:grid-cols-3 place-items-center gap-5">
         <div>
           <div class="p-3 w-72 bg-white text-error shadow-xl">
             <div className="flex justify-between items-center">

@@ -18,7 +18,12 @@ const Dashboard = () => {
         </div>
         <Outlet />
       </div>
-      <div class="drawer-side">
+      <div
+        class="drawer-side"
+        style={{
+          boxShadow: "rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px",
+        }}
+      >
         <label for="dashboard-sidebar" class="drawer-overlay"></label>
         <ul class="menu p-4 overflow-y-auto w-60 bg-base-100 text-base-content">
           <li>

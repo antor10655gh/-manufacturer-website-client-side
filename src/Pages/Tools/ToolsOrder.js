@@ -59,17 +59,21 @@ const ToolsOrder = () => {
   };
 
   return (
-    <div className="py-12">
+    <div className="">
       <div class="hero min-h-screen">
         <div class="hero-content flex-col lg:flex-row-reverse">
           <div class="text-center lg:text-left lg:px-8 pt-8">
             <h1 class="lg:text-3xl font-bold">
               <span className="text-secondary">{name}</span>
             </h1>
-            <img src={picture} alt="" />
-            <p class="py-6">
+            <img className="mx-auto" src={picture} alt="" />
+            <p class="py-3">
               <span className="font-bold">Description:</span>
               {description}
+            </p>
+            <p>
+              <span className="font-bold">Available: </span>
+              {available_quantity} pc's
             </p>
           </div>
           <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
