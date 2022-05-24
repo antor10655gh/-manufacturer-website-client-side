@@ -8,8 +8,46 @@ const AddProduct = () => {
     handleSubmit,
   } = useForm();
 
+  const imageStorageKey = "2a086f2db1e0e008d32e31f3ad98ce25";
+
   const onSubmit = async (data) => {
-    console.log("data", data);
+    console.log(data);
+    const image = data.image[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.success) {
+          const img = result.data.url;
+          const product = {
+            name: data.name,
+            description: data.description,
+            minimum_quantity: data.minimum_quantity,
+            available_quantity: data.available_quantity,
+            price: data.price,
+            picture: img,
+          };
+          // send product data on database
+          fetch("http://localhost:5000/products", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+            body: JSON.stringify(product),
+          })
+            .then((res) => res.json())
+            .then((insertProduct) => {
+              console.log("product", insertProduct);
+            });
+        }
+        console.log(result);
+      });
   };
 
   return (
@@ -19,6 +57,7 @@ const AddProduct = () => {
       </header>
       <div className="pt-3">
         <form onSubmit={handleSubmit(onSubmit)}>
+          {/* start product name field */}
           <label className="label">
             <span className="label-text text-md font-bold">Product Name</span>
           </label>
@@ -40,6 +79,9 @@ const AddProduct = () => {
               </span>
             )}
           </label>
+          {/* end product name field */}
+
+          {/* start description field */}
           <label className="label">
             <span className="label-text text-md font-bold">Description</span>
           </label>
@@ -60,6 +102,9 @@ const AddProduct = () => {
               </span>
             )}
           </label>
+          {/* end description field */}
+
+          {/* start minimum quantity field */}
           <label className="label">
             <span className="label-text text-md font-bold">
               Minimum Quantity
@@ -83,6 +128,9 @@ const AddProduct = () => {
               </span>
             )}
           </label>
+          {/* end minimum quantity field */}
+
+          {/* start available quantity field */}
           <label className="label">
             <span className="label-text text-md font-bold">
               Available Quantity
@@ -106,6 +154,9 @@ const AddProduct = () => {
               </span>
             )}
           </label>
+          {/* end available quantity field */}
+
+          {/* start price field */}
           <label className="label">
             <span className="label-text text-md font-bold">Price</span>
           </label>
@@ -127,6 +178,9 @@ const AddProduct = () => {
               </span>
             )}
           </label>
+          {/* end price field */}
+
+          {/* start photo field */}
           <label className="label">
             <span className="label-text text-md font-bold">Photo</span>
           </label>
@@ -148,6 +202,8 @@ const AddProduct = () => {
               </span>
             )}
           </label>
+          {/* end photo field */}
+
           <input
             type="submit"
             value="Add Now"

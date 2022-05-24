@@ -120,6 +120,8 @@ const ToolsOrder = () => {
                     required
                     type="number"
                     name="quantity"
+                    min={minimum_quantity}
+                    max={available_quantity}
                     placeholder="Order quantity"
                     class="input input-bordered"
                   />
