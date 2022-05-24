@@ -1,6 +1,7 @@
 import React from "react";
 import {
   useCreateUserWithEmailAndPassword,
+  useSendEmailVerification,
   useSignInWithGoogle,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
@@ -9,6 +10,7 @@ import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
 import Loading from "../Shared/Loading";
 import useToken from "../../hooks/useToken";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
@@ -21,6 +23,8 @@ const SignUp = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const [updateProfile, updateLoading, updateError] = useUpdateProfile(auth);
+  const [sendEmailVerification, sending, verificationError] =
+    useSendEmailVerification(auth);
 
   const [token] = useToken(user || googleUser);
 
@@ -30,6 +34,12 @@ const SignUp = () => {
 
   if (token) {
     navigate("/home");
+  }
+
+  if (sending) {
+    toast.success("Sent email", {
+      autoClose: 1000,
+    });
   }
 
   if (loading || googleLoading || updateLoading) {
@@ -49,10 +59,14 @@ const SignUp = () => {
   const onSubmit = async (data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
+    await sendEmailVerification();
+    toast("Sent email", {
+      autoClose: 1000,
+    });
   };
 
   return (
-    <div className="pt-20 py-10">
+    <div className="pt-12 pb-10">
       <div className="grid grid-cols-1 place-items-center">
         <div
           style={{
@@ -124,7 +138,7 @@ const SignUp = () => {
             <input
               type="password"
               placeholder="Enter password"
-              className="input input-bordered w-full max-w-md"
+              className="input input-bordered w-full max-w-md mb-5"
               {...register("password", {
                 required: {
                   value: true,
@@ -149,11 +163,6 @@ const SignUp = () => {
                 </span>
               )}
             </label>
-            <label className="label mb-3">
-              <button className="text-secondary text-sm">
-                Forgot Password ?
-              </button>
-            </label>
             {signUpError}
             <input
               className="btn btn-wide w-full mb-2"
@@ -164,6 +173,7 @@ const SignUp = () => {
             <span className="flex flex-row justify-center">
               Already Have an Account ?{" "}
               <Link to="/login" className="text-secondary">
+                {" "}
                 Please Login
               </Link>
             </span>
