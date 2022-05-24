@@ -21,6 +21,7 @@ import RequireAdmin from "./Pages/Login/RequireAdmin";
 import ManageAllOrders from "./Pages/Dashboard/ManageAllOrders";
 import AddProduct from "./Pages/Dashboard/AddProduct";
 import ManageProducts from "./Pages/Dashboard/ManageProducts";
+import DashboardIndex from "./Pages/Dashboard/DashboardIndex";
 
 function App() {
   return (
@@ -45,7 +46,8 @@ function App() {
             </RequireAuth>
           }
         >
-          <Route index element={<MyOrder></MyOrder>}></Route>
+          <Route index element={<DashboardIndex></DashboardIndex>}></Route>
+          <Route path="myOrders" element={<MyOrder></MyOrder>}></Route>
           <Route path="addReview" element={<AddReview></AddReview>}></Route>
           <Route path="myProfile" element={<MyProfile></MyProfile>}></Route>
           <Route
