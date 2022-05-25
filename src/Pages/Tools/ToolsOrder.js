@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
 import { toast } from "react-toastify";
+import moment from "moment";
 
 const ToolsOrder = () => {
   const [product, setProduct] = useState([]);
@@ -17,6 +18,7 @@ const ToolsOrder = () => {
   } = product;
   const [user, loading] = useAuthState(auth);
   const { productId } = useParams();
+  const date = moment().format("MMMM Do YYYY, h:mm a");
 
   useEffect(() => {
     fetch(`http://localhost:5000/products/${productId}`)
@@ -37,6 +39,7 @@ const ToolsOrder = () => {
       orderProductName: name,
       customerEmail: user.email,
       customerName: user.displayName,
+      date: event.target.date.value,
       phone: event.target.phone.value,
       address: event.target.address.value,
       orderQuantity: event.target.quantity.value,
@@ -95,6 +98,15 @@ const ToolsOrder = () => {
                     disabled
                     type="text"
                     value={user.email}
+                    class="input input-bordered"
+                  />
+                </div>
+                <div class="form-control mb-3">
+                  <input
+                    disabled
+                    name="date"
+                    value={date}
+                    type="text"
                     class="input input-bordered"
                   />
                 </div>
