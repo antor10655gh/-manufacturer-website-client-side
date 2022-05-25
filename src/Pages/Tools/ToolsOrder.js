@@ -171,7 +171,13 @@ const ToolsOrder = () => {
                 </div>
                 {<p className="text-sm text-error">{quantityError}</p>}
                 <div class="form-control mt-6">
-                  <button class="btn btn-primary">Order</button>
+                  {quantityError ? (
+                    <button class="btn disabled bg-gray-400 cursor-not-allowed hover-none">
+                      Order
+                    </button>
+                  ) : (
+                    <button class="btn btn-primary text-white">Order</button>
+                  )}
                 </div>
               </form>
             </div>
