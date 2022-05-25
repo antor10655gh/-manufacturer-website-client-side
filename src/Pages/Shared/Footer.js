@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer
       style={{ background: "#151F28" }}
-      className="footer footer-center p-10 text-base-content rounded"
+      className="footer footer-center p-10 text-base-content"
     >
       <div>
         <img src={logo} alt="" />

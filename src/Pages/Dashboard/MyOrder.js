@@ -51,20 +51,22 @@ const MyOrder = () => {
               <tr>
                 <th>{index + 1}</th>
                 <td>{order.customerName}</td>
-                <td>{order.orderProductName}</td>
+                <td class="tooltip p-5" data-tip={order.orderProductName}>
+                  {order.orderProductName.slice(0, 10)}...
+                </td>
                 <td>{order.orderQuantity}</td>
                 <td>{order.orderPrice}</td>
                 <td>{order.date}</td>
                 <td>
-                  {order.price && !order.paid && (
+                  {order.orderPrice && !order.paid && (
                     <Link to={`/dashboard/payment/${order._id}`}>
-                      <button className="btn btn-sm btn-secondary lg:px-5">
+                      <button className="btn btn-xs btn-secondary lg:px-5">
                         Pay
                       </button>
                     </Link>
                   )}
-                  {order.price && order.paid && (
-                    <button className="btn btn-sm disabled text-success lg:px-4">
+                  {order.orderPrice && order.paid && (
+                    <button className="btn btn-xs disabled text-success lg:px-4">
                       Paid
                     </button>
                   )}

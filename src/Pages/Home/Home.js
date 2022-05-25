@@ -17,9 +17,8 @@ const Home = () => {
       <HomeTools></HomeTools>
       <CountDown></CountDown>
       <Subscribe></Subscribe>
-      <Brand></Brand>
       <HomeContact></HomeContact>
-      <BusinessSummery></BusinessSummery>
+      <Brand></Brand>
       <Footer></Footer>
     </div>
   );

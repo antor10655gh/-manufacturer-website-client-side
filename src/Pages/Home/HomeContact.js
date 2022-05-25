@@ -10,7 +10,7 @@ const HomeContact = () => {
       className="bg-primary px-10 py-8 lg:py-14"
     >
       <div className="text-center pb-5 lg:pb-14 text-white">
-        <p className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-primary to-secondary">
+        <p className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-primary to-secondary">
           Contact Us
         </p>
         <h1 className="text-2xl lg:text-4xl">Stay connected with us</h1>
@@ -31,7 +31,7 @@ const HomeContact = () => {
           placeholder="Your message"
           rows={6}
         ></textarea>
-        <button className="btn btn-primary uppercase text-white font-bold bg-gradient-to-r from-secondary to-primary">
+        <button className="btn btn-primary uppercase text-white font-bold bg-gradient-to-r from-secondary to-primary btn-wide">
           Submit
         </button>
       </div>
