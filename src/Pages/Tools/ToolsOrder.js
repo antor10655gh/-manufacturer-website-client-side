@@ -13,6 +13,7 @@ const ToolsOrder = () => {
     name,
     picture,
     description,
+    price,
     minimum_quantity,
     available_quantity,
   } = product;
@@ -42,6 +43,7 @@ const ToolsOrder = () => {
       date: event.target.date.value,
       phone: event.target.phone.value,
       address: event.target.address.value,
+      orderPrice: event.target.quantity.value * price,
       orderQuantity: event.target.quantity.value,
     };
 

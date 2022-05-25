@@ -40,6 +40,7 @@ const MyOrder = () => {
               <th>Name</th>
               <th>Product</th>
               <th>Quantity</th>
+              <th>Price</th>
               <th>Date/Time</th>
               <th>Payment</th>
               <th>Action</th>
@@ -52,6 +53,7 @@ const MyOrder = () => {
                 <td>{order.customerName}</td>
                 <td>{order.orderProductName}</td>
                 <td>{order.orderQuantity}</td>
+                <td>{order.orderPrice}</td>
                 <td>{order.date}</td>
                 <td>
                   {order.price && !order.paid && (

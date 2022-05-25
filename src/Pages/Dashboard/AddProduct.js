@@ -48,6 +48,8 @@ const AddProduct = () => {
               if (insertProduct.insertedId) {
                 toast.success("Your product successfully added");
                 reset();
+              } else {
+                toast.error("Failed to add product");
               }
             });
         }
