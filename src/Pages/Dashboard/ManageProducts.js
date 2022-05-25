@@ -1,12 +1,34 @@
 import React from "react";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import Loading from "../Shared/Loading";
 
 const ManageProducts = () => {
-  const { data: products, isLoading } = useQuery("products", () =>
+  const {
+    data: products,
+    isLoading,
+    refetch,
+  } = useQuery("products", () =>
     fetch(`http://localhost:5000/products`).then((res) => res.json())
   );
+
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/products/${id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.deletedCount) {
+          toast.success("Deleted");
+          refetch();
+        }
+      });
+  };
 
   if (isLoading) {
     return <Loading></Loading>;
@@ -46,7 +68,12 @@ const ManageProducts = () => {
                 <td className="text-center">{product.minimum_quantity}</td>
                 <td className="text-center">{product.available_quantity}</td>
                 <td>
-                  <button className="btn btn-xs btn-error">Delete</button>
+                  <button
+                    onClick={() => handleDelete(product._id)}
+                    className="btn btn-xs btn-error"
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
