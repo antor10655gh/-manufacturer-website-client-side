@@ -8,6 +8,8 @@ import moment from "moment";
 
 const ToolsOrder = () => {
   const [product, setProduct] = useState([]);
+  const [quantityError, setQuantityError] = useState("");
+  const [totalPrice, setTotalPrice] = useState("");
   const {
     _id,
     name,
@@ -32,6 +34,23 @@ const ToolsOrder = () => {
   if (loading) {
     return <Loading></Loading>;
   }
+
+  const handleQuantity = (event) => {
+    const inputQuantity = event.target.value;
+    setTotalPrice(price * inputQuantity);
+
+    if (inputQuantity < minimum_quantity) {
+      setQuantityError(
+        `Please order minimum ${minimum_quantity} tools to purchased`
+      );
+    } else if (inputQuantity > available_quantity) {
+      setQuantityError(
+        `Please order less than ${available_quantity} tools to purchased`
+      );
+    } else {
+      setQuantityError("");
+    }
+  };
 
   const handleOrder = (event) => {
     event.preventDefault();
@@ -134,12 +153,23 @@ const ToolsOrder = () => {
                     required
                     type="number"
                     name="quantity"
-                    min={minimum_quantity}
-                    max={available_quantity}
+                    defaultValue={minimum_quantity}
+                    onChange={handleQuantity}
                     placeholder="Order quantity"
                     class="input input-bordered"
                   />
                 </div>
+                <div class="form-control mb-3">
+                  <input
+                    disabled
+                    type="number"
+                    name="price"
+                    value={totalPrice}
+                    placeholder="Order total price"
+                    class="input input-bordered"
+                  />
+                </div>
+                {<p className="text-sm text-error">{quantityError}</p>}
                 <div class="form-control mt-6">
                   <button class="btn btn-primary">Order</button>
                 </div>
