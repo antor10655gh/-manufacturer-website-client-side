@@ -1,5 +1,6 @@
 import React from "react";
 import BusinessSummery from "../BusinessSummary/BusinessSummary";
+import Reviews from "../Reviews/Reviews";
 import Footer from "../Shared/Footer";
 import Banner from "./Banner";
 import Brand from "./Brand";
@@ -18,6 +19,7 @@ const Home = () => {
       <CountDown></CountDown>
       <Subscribe></Subscribe>
       <HomeContact></HomeContact>
+      <Reviews></Reviews>
       <Brand></Brand>
       <Footer></Footer>
     </div>
