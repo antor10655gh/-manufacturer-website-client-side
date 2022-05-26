@@ -12,7 +12,9 @@ const ManageProducts = () => {
     isLoading,
     refetch,
   } = useQuery("products", () =>
-    fetch(`http://localhost:5000/products`).then((res) => res.json())
+    fetch(`https://arcane-headland-03409.herokuapp.com/products`).then((res) =>
+      res.json()
+    )
   );
 
   if (isLoading) {

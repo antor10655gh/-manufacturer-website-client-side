@@ -11,7 +11,7 @@ const ManageAllOrders = () => {
     isLoading,
     refetch,
   } = useQuery("allOrders", () =>
-    fetch("http://localhost:5000/orders", {
+    fetch("https://arcane-headland-03409.herokuapp.com/orders", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -28,7 +28,7 @@ const ManageAllOrders = () => {
   }
 
   const handleDeleteOrder = (id) => {
-    fetch(`http://localhost:5000/orders/${id}`, {
+    fetch(`https://arcane-headland-03409.herokuapp.com/orders/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

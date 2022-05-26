@@ -25,7 +25,7 @@ const ToolsOrder = () => {
   const date = moment().format("MMMM Do YYYY, h:mm a");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${productId}`)
+    fetch(`https://arcane-headland-03409.herokuapp.com/products/${productId}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
@@ -71,17 +71,20 @@ const ToolsOrder = () => {
     };
 
     const nextFunc = () => {
-      fetch(`http://localhost:5000/products/${product._id}`, {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-        body: JSON.stringify({
-          available_quantity:
-            parseInt(available_quantity) - parseInt(inputQuantity),
-        }),
-      })
+      fetch(
+        `https://arcane-headland-03409.herokuapp.com/products/${product._id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+          body: JSON.stringify({
+            available_quantity:
+              parseInt(available_quantity) - parseInt(inputQuantity),
+          }),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           toast.success("Database Update Successfully", {
@@ -90,7 +93,7 @@ const ToolsOrder = () => {
         });
     };
 
-    fetch(`http://localhost:5000/order`, {
+    fetch(`https://arcane-headland-03409.herokuapp.com/order`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

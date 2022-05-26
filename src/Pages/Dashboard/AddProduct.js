@@ -35,7 +35,7 @@ const AddProduct = () => {
             picture: img,
           };
           // send product data on database
-          fetch("http://localhost:5000/products", {
+          fetch("https://arcane-headland-03409.herokuapp.com/products", {
             method: "POST",
             headers: {
               "content-type": "application/json",

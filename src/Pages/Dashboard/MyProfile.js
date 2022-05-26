@@ -9,7 +9,9 @@ const MyProfile = () => {
   const [googleUser] = useAuthState(auth);
   const [demoUser, setDemoUser] = useState({});
   useEffect(() => {
-    fetch(`http://localhost:5000/userInfo/${googleUser.email}`)
+    fetch(
+      `https://arcane-headland-03409.herokuapp.com/userInfo/${googleUser.email}`
+    )
       .then((res) => res.json())
       .then((data) => setDemoUser(data));
   }, [demoUser, googleUser]);
@@ -22,13 +24,16 @@ const MyProfile = () => {
       city: event.target.city.value,
       contact: event.target.contact.value,
     };
-    fetch(`http://localhost:5000/user/${googleUser.email}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateUser),
-    })
+    fetch(
+      `https://arcane-headland-03409.herokuapp.com/user/${googleUser.email}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateUser),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {

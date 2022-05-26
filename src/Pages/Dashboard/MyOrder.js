@@ -17,12 +17,15 @@ const MyOrder = () => {
     isLoading,
     refetch,
   } = useQuery("order", () =>
-    fetch(`http://localhost:5000/order?customerEmail=${user.email}`, {
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://arcane-headland-03409.herokuapp.com/order?customerEmail=${user.email}`,
+      {
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => {
         if (res.status === 401 || res.status === 403) {
           console.log("res", res);
@@ -40,7 +43,7 @@ const MyOrder = () => {
   }
 
   const handleDeleteOrder = (id) => {
-    fetch(`http://localhost:5000/order/${id}`, {
+    fetch(`https://arcane-headland-03409.herokuapp.com/order/${id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -95,7 +98,7 @@ const MyOrder = () => {
                   )}
                   {order.orderPrice && order.paid && (
                     <div>
-                      <button className="btn btn-xs disabled text-success lg:px-4">
+                      <button className="btn btn-xs disabled text-primary lg:px-4">
                         Paid
                       </button>
                       <p>
