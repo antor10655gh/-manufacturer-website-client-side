@@ -2,6 +2,7 @@ import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
 const MyOrder = () => {
@@ -29,6 +30,23 @@ const MyOrder = () => {
         .then((data) => setOrders(data));
     }
   }, [user]);
+
+  const handleDeleteOrder = (id) => {
+    fetch(`http://localhost:5000/orders/${id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.deletedCount) {
+          toast.success("Deleted");
+        }
+      });
+  };
+
   return (
     <div className="px-6 lg:px-12">
       <h2 className="text-xl py-2">My Orders - {orders.length}</h2>
@@ -72,12 +90,13 @@ const MyOrder = () => {
                   )}
                 </td>
                 <td>
-                  <label
+                  <button
+                    onClick={() => handleDeleteOrder(order._id)}
                     for="delete-confirm-modal"
                     class="btn btn-xs btn-error"
                   >
                     Delete
-                  </label>
+                  </button>
                 </td>
               </tr>
             ))}

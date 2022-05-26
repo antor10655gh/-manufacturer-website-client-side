@@ -4,6 +4,13 @@ import { useParams } from "react-router-dom";
 import Loading from "../Shared/Loading";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "./CheckoutForm";
+
+const stripePromise = loadStripe(
+  "pk_test_51L1GNCK95exOkSwmAZHQCW1TviBsoK9dZpqMwG1XiUZc1wXxCGL5wPX97Utp5PGHQbXIpfh9qK2glsDeeKJNUtEh00AsfElRRg"
+);
 
 const Payment = () => {
   const [user] = useAuthState(auth);
@@ -40,7 +47,11 @@ const Payment = () => {
         </div>
       </div>
       <div class="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">
-        <div class="card-body"></div>
+        <div class="card-body">
+          <Elements stripe={stripePromise}>
+            <CheckoutForm order={order} />
+          </Elements>
+        </div>
       </div>
     </div>
   );

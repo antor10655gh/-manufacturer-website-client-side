@@ -23,6 +23,7 @@ import AddProduct from "./Pages/Dashboard/AddProduct";
 import ManageProducts from "./Pages/Dashboard/ManageProducts";
 import DashboardIndex from "./Pages/Dashboard/DashboardIndex";
 import Payment from "./Pages/Dashboard/Payment";
+import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio";
 
 function App() {
   return (
@@ -87,6 +88,10 @@ function App() {
         </Route>
         <Route path="/reviews" element={<Reviews></Reviews>}></Route>
         <Route path="/blog" element={<Blog></Blog>}></Route>
+        <Route
+          path="/myPortfolio"
+          element={<MyPortfolio></MyPortfolio>}
+        ></Route>
         <Route
           path="/businessSummary"
           element={<BusinessSummary></BusinessSummary>}
