@@ -91,7 +91,7 @@ const MyOrder = () => {
                 </td>
                 <td>
                   <button
-                    onClick={() => handleDeleteOrder(order._id)}
+                    onClick={() => handleDeleteOrder(order.orderProduct)}
                     for="delete-confirm-modal"
                     class="btn btn-xs btn-error"
                   >

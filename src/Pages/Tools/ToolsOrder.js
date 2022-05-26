@@ -36,16 +36,18 @@ const ToolsOrder = () => {
   }
 
   const handleQuantity = (event) => {
+    const newMinimumQuantity = parseInt(minimum_quantity);
+    const newAvailableQuantity = parseInt(available_quantity);
     const inputQuantity = event.target.value;
     setTotalPrice(price * inputQuantity);
 
-    if (inputQuantity < minimum_quantity) {
+    if (inputQuantity < newMinimumQuantity) {
       setQuantityError(
-        `Please order minimum ${minimum_quantity} tools to purchased`
+        `Please order minimum ${newMinimumQuantity} tools to purchased`
       );
-    } else if (inputQuantity > available_quantity) {
+    } else if (inputQuantity > newAvailableQuantity) {
       setQuantityError(
-        `Please order less than ${available_quantity} tools to purchased`
+        `Please order less than ${newAvailableQuantity} tools to purchased`
       );
     } else {
       setQuantityError("");
