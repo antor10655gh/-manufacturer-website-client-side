@@ -10,6 +10,7 @@ const ToolsOrder = () => {
   const [product, setProduct] = useState([]);
   const [quantityError, setQuantityError] = useState("");
   const [totalPrice, setTotalPrice] = useState("");
+  console.log(product);
   const {
     _id,
     name,
@@ -56,6 +57,7 @@ const ToolsOrder = () => {
 
   const handleOrder = (event) => {
     event.preventDefault();
+    const inputQuantity = event.target.quantity.value;
     const order = {
       orderProduct: _id,
       orderProductName: name,
@@ -66,6 +68,26 @@ const ToolsOrder = () => {
       address: event.target.address.value,
       orderPrice: event.target.quantity.value * price,
       orderQuantity: event.target.quantity.value,
+    };
+
+    const nextFunc = () => {
+      fetch(`http://localhost:5000/products/${product._id}`, {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify({
+          available_quantity:
+            parseInt(available_quantity) - parseInt(inputQuantity),
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          toast.success("Database Update Successfully", {
+            autoClose: 1000,
+          });
+        });
     };
 
     fetch(`http://localhost:5000/order`, {
@@ -80,6 +102,7 @@ const ToolsOrder = () => {
         toast.success("Your order is successful", {
           autoClose: 1000,
         });
+        nextFunc();
         event.target.reset();
       });
   };

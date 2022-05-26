@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { toast } from "react-toastify";
+import Loading from "../Shared/Loading";
 
 const ManageAllOrders = () => {
   const [orders, setOrders] = useState([]);
@@ -21,6 +22,10 @@ const ManageAllOrders = () => {
         setOrders(data);
       })
   );
+
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
 
   const handleDeleteOrder = (id) => {
     fetch(`http://localhost:5000/orders/${id}`, {

@@ -76,6 +76,26 @@ const CheckoutForm = ({ order }) => {
       setTransactionId(paymentIntent.id);
       console.log(paymentIntent);
       setSuccess("Congrats! Your payment is completed");
+
+      //store payment on database
+      const payment = {
+        order: _id,
+        transactionId: paymentIntent.id,
+      };
+
+      fetch(`http://localhost:5000/order/${_id}`, {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify(payment),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setProcessing(false);
+          console.log(data);
+        });
     }
   };
 

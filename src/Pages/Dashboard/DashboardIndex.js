@@ -1,6 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 
 const DashboardIndex = () => {
+  const [orders, setOrders] = useState([]);
+  const [user] = useAuthState(auth);
+  useEffect(() => {
+    if (user) {
+      fetch(`http://localhost:5000/order?customerEmail=${user.email}`, {
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => setOrders(data));
+    }
+  }, [user]);
   return (
     <div>
       <div className="lg:px-12 pt-5 lg:pt-12 grid lg:grid-cols-3 place-items-center gap-5">
@@ -11,7 +27,7 @@ const DashboardIndex = () => {
               <p>Last Year Expenses</p>
             </div>
             <div>
-              <h2 className="text-4xl font-bold">1890</h2>
+              <h2 className="text-4xl font-bold">{orders.length}</h2>
             </div>
           </div>
         </div>

@@ -1,40 +1,49 @@
 import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useQuery } from "react-query";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
+import Loading from "../Shared/Loading";
 
 const MyOrder = () => {
   const [orders, setOrders] = useState([]);
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (user) {
-      fetch(`http://localhost:5000/order?customerEmail=${user.email}`, {
-        method: "GET",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
+  const {
+    data: order,
+    isLoading,
+    refetch,
+  } = useQuery("order", () =>
+    fetch(`http://localhost:5000/order?customerEmail=${user.email}`, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          console.log("res", res);
+          signOut(auth);
+          localStorage.removeItem("accessToken");
+          navigate("/");
+        }
+        return res.json();
       })
-        .then((res) => {
-          if (res.status === 401 || res.status === 403) {
-            console.log("res", res);
-            signOut(auth);
-            localStorage.removeItem("accessToken");
-            navigate("/");
-          }
-          return res.json();
-        })
-        .then((data) => setOrders(data));
-    }
-  }, [user]);
+      .then((data) => setOrders(data))
+  );
+
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
 
   const handleDeleteOrder = (id) => {
-    fetch(`http://localhost:5000/orders/${id}`, {
+    fetch(`http://localhost:5000/order/${id}`, {
       method: "DELETE",
       headers: {
+        "content-type": "application/json",
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     })
@@ -43,6 +52,7 @@ const MyOrder = () => {
         console.log(data);
         if (data.deletedCount) {
           toast.success("Deleted");
+          refetch();
         }
       });
   };
@@ -66,10 +76,10 @@ const MyOrder = () => {
           </thead>
           <tbody>
             {orders.map((order, index) => (
-              <tr>
+              <tr key={order._id}>
                 <th>{index + 1}</th>
                 <td>{order.customerName}</td>
-                <td class="tooltip p-5" data-tip={order.orderProductName}>
+                <td class="tooltip" data-tip={order.orderProductName}>
                   {order.orderProductName.slice(0, 10)}...
                 </td>
                 <td>{order.orderQuantity}</td>
@@ -84,14 +94,22 @@ const MyOrder = () => {
                     </Link>
                   )}
                   {order.orderPrice && order.paid && (
-                    <button className="btn btn-xs disabled text-success lg:px-4">
-                      Paid
-                    </button>
+                    <div>
+                      <button className="btn btn-xs disabled text-success lg:px-4">
+                        Paid
+                      </button>
+                      <p>
+                        Transaction id:{" "}
+                        <span className="text-primary">
+                          {order.transactionId}
+                        </span>
+                      </p>
+                    </div>
                   )}
                 </td>
                 <td>
                   <button
-                    onClick={() => handleDeleteOrder(order.orderProduct)}
+                    onClick={() => handleDeleteOrder(order._id)}
                     for="delete-confirm-modal"
                     class="btn btn-xs btn-error"
                   >
