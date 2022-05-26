@@ -486,9 +486,10 @@ const MyPortfolio = () => {
                       with their company. The travel mobile app owner also
                       charges commissions on each booking.
                     </p>
-                    <Link
-                      to="https://trawell-project-fb6da.firebaseapp.com/"
+                    <a
+                      href="https://trawell-project-fb6da.firebaseapp.com/"
                       class="mt-3 text-primary inline-flex items-center"
+                      target="_blank"
                     >
                       Live Demo
                       <svg
@@ -502,7 +503,7 @@ const MyPortfolio = () => {
                       >
                         <path d="M5 12h14M12 5l7 7-7 7"></path>
                       </svg>
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -527,9 +528,10 @@ const MyPortfolio = () => {
                       author, later can add to the shopping cart and finally
                       purchase so well.
                     </p>
-                    <Link
-                      to="https://bookly-project-d23c0.firebaseapp.com/"
+                    <a
+                      href="https://bookly-project-d23c0.firebaseapp.com/"
                       class="mt-3 text-primary inline-flex items-center"
+                      target="_blank"
                     >
                       Live Demo
                       <svg
@@ -543,7 +545,7 @@ const MyPortfolio = () => {
                       >
                         <path d="M5 12h14M12 5l7 7-7 7"></path>
                       </svg>
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -568,9 +570,10 @@ const MyPortfolio = () => {
                       patterns according to which some diseases progress and
                       catch them in other patients.
                     </p>
-                    <Link
-                      to="https://doctors-portal-a770c.firebaseapp.com/"
+                    <a
+                      href="https://doctors-portal-a770c.firebaseapp.com/"
                       class="mt-3 text-primary inline-flex items-center"
+                      target="_blank"
                     >
                       Live Demo
                       <svg
@@ -584,7 +587,7 @@ const MyPortfolio = () => {
                       >
                         <path d="M5 12h14M12 5l7 7-7 7"></path>
                       </svg>
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>

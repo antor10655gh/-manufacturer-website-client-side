@@ -27,6 +27,12 @@ const Footer = () => {
           Blog
         </Link>
         <Link
+          to="/myPortfolio"
+          className="link link-hover hover:text-secondary"
+        >
+          My Portfolio
+        </Link>
+        <Link
           to="/businessSummary"
           className="link link-hover hover:text-secondary"
         >

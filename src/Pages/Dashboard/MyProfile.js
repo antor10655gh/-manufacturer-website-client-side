@@ -49,7 +49,7 @@ const MyProfile = () => {
           <figure class="px-10 pt-10">
             <div class="avatar online">
               <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                <img src={googleUser.photoURL} alt={googleUser.displayName} />
+                <img src={googleUser.photoURL} alt="Avatar" />
               </div>
             </div>
           </figure>
