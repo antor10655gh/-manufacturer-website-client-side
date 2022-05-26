@@ -7,12 +7,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const MyProfile = () => {
   const [googleUser] = useAuthState(auth);
-  const [NormalUser, setNormalUser] = useState({});
+  const [demoUser, setDemoUser] = useState({});
   useEffect(() => {
     fetch(`http://localhost:5000/userInfo/${googleUser.email}`)
       .then((res) => res.json())
-      .then((data) => setNormalUser(data));
-  }, [NormalUser, googleUser]);
+      .then((data) => setDemoUser(data));
+  }, [demoUser, googleUser]);
   const handleUpdate = (event) => {
     event.preventDefault();
     const updateUser = {
@@ -62,18 +62,17 @@ const MyProfile = () => {
               ></FontAwesomeIcon>
               {googleUser.email}
             </p>
-            {NormalUser ? (
+            {demoUser ? (
               <div>
                 <p className="pb-2">
                   <span className="font-bold">Education:</span>{" "}
-                  {NormalUser.education}
+                  {demoUser.education}
                 </p>
                 <p className="pb-2">
-                  <span className="font-bold">City:</span> {NormalUser.city}
+                  <span className="font-bold">City:</span> {demoUser.city}
                 </p>
                 <p className="pb-2">
-                  <span className="font-bold">Contact:</span>{" "}
-                  {NormalUser.contact}
+                  <span className="font-bold">Contact:</span> {demoUser.contact}
                 </p>
               </div>
             ) : (
