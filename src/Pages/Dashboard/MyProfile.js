@@ -13,14 +13,14 @@ const MyProfile = () => {
       .then((res) => res.json())
       .then((data) => setNormalUser(data));
   }, [NormalUser, googleUser]);
-  const handleUpdate = (e) => {
-    e.preventDefault();
+  const handleUpdate = (event) => {
+    event.preventDefault();
     const updateUser = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      education: e.target.education.value,
-      city: e.target.city.value,
-      contact: e.target.contact.value,
+      name: event.target.name.value,
+      email: event.target.email.value,
+      education: event.target.education.value,
+      city: event.target.city.value,
+      contact: event.target.contact.value,
     };
     fetch(`http://localhost:5000/user/${googleUser.email}`, {
       method: "PUT",
@@ -34,7 +34,7 @@ const MyProfile = () => {
         if (data.acknowledged) {
           toast.success("Successfully saved");
           console.log(data);
-          e.target.reset();
+          event.target.reset();
         }
       });
     console.log(updateUser);

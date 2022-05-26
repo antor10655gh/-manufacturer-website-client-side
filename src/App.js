@@ -24,6 +24,7 @@ import ManageProducts from "./Pages/Dashboard/ManageProducts";
 import DashboardIndex from "./Pages/Dashboard/DashboardIndex";
 import Payment from "./Pages/Dashboard/Payment";
 import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio";
+import NotFound from "./Pages/NotFound/NotFound";
 
 function App() {
   return (
@@ -106,6 +107,7 @@ function App() {
         ></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToastContainer />
     </div>
