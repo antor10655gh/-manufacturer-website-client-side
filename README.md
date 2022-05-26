@@ -1,6 +1,6 @@
 # Tooltrex Project
 
-Here is my site link [Create React App](https://tooltrex-project.firebaseapp.com/).
+Here is my site link [Tooltrex-Project](https://tooltrex-project.firebaseapp.com/).
 
 ## Project Menu
 
