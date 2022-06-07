@@ -6,9 +6,19 @@ Here is my site link [Tooltrex-Project](https://tooltrex-project.firebaseapp.com
 
 PC based with mobile. Design is looking incredible web warehouse software.
 
-## Classification of this project--
+### Classification of this project--
 
-### 1.Full responsive website where user can order product and also payment in card. User also can delete their ordered product. User can add their review.
+#### 1.Full responsive website.
+
+#### 2.User can order product and also payment in card.
+
+#### 3.User can delete their ordered product.
+
+#### 4.User can add their review.
+
+#### 5.Admin can add product, manage these products, manage all orders.
+
+#### 6.Admin can set role of user as admin for admin panel.
 
 ### All routes or pages are here---
 
