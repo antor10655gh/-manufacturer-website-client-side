@@ -20,6 +20,8 @@ PC based with mobile. Design is looking incredible web warehouse software.
 
 #### 6.Admin can set role of user as admin for admin panel.
 
+#### 7.User and Admin have my profile where they can update their profile.
+
 ### All routes or pages are here---
 
 #### 1.Home
