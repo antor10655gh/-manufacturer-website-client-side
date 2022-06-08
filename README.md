@@ -2,6 +2,10 @@
 
 Here is my site link [Tooltrex-Project](https://tooltrex-project.firebaseapp.com/).
 
+Testing Purpose:
+Email: admin@gmail.com
+Password: 123123
+
 ## Project Menu
 
 PC based with mobile. Design is looking incredible web warehouse software.
